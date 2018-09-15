@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED1E6FB5211FC06D0076FD3D /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E6FB4211FC06C0076FD3D /* InsetLabel.swift */; };
+		ED725B8321229E3E00550626 /* TokenTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED725B8221229E3E00550626 /* TokenTextViewTableViewCell.swift */; };
 		EDF91DCE20BFB1BE00A79838 /* TokenTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF91DCD20BFB1BE00A79838 /* TokenTextView.swift */; };
+		EDF91DD520BFB44F00A79838 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF91DD420BFB44E00A79838 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ED1E6FB4211FC06C0076FD3D /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		ED725B8221229E3E00550626 /* TokenTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		EDF91DCA20BFB1BE00A79838 /* libTokenTextView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTokenTextView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF91DCD20BFB1BE00A79838 /* TokenTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTextView.swift; sourceTree = "<group>"; };
+		EDF91DD420BFB44E00A79838 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		EDF91DD620BFB48F00A79838 /* UITextView+TokenTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+TokenTextView.h"; sourceTree = "<group>"; };
+		EDF91DD820BFB50600A79838 /* TokenTextView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TokenTextView-Bridging-Header.h"; sourceTree = "<group>"; };
+		EDF91DE420C0266500A79838 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +52,7 @@
 			children = (
 				EDF91DCC20BFB1BE00A79838 /* TokenTextView */,
 				EDF91DCB20BFB1BE00A79838 /* Products */,
+				EDF91DE420C0266500A79838 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,11 @@
 			isa = PBXGroup;
 			children = (
 				EDF91DCD20BFB1BE00A79838 /* TokenTextView.swift */,
+				ED1E6FB4211FC06C0076FD3D /* InsetLabel.swift */,
+				ED725B8221229E3E00550626 /* TokenTextViewTableViewCell.swift */,
+				EDF91DD420BFB44E00A79838 /* Helpers.swift */,
+				EDF91DD620BFB48F00A79838 /* UITextView+TokenTextView.h */,
+				EDF91DD820BFB50600A79838 /* TokenTextView-Bridging-Header.h */,
 			);
 			path = TokenTextView;
 			sourceTree = "<group>";
@@ -120,6 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF91DCE20BFB1BE00A79838 /* TokenTextView.swift in Sources */,
+				ED1E6FB5211FC06D0076FD3D /* InsetLabel.swift in Sources */,
+				ED725B8321229E3E00550626 /* TokenTextViewTableViewCell.swift in Sources */,
+				EDF91DD520BFB44F00A79838 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +195,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -231,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -247,6 +265,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TokenTextView/TokenTextView-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -259,6 +278,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TokenTextView/TokenTextView-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

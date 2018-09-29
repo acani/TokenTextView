@@ -4,7 +4,7 @@ open class InsetLabel: UILabel {
     open var textInsets = UIEdgeInsets.zero
 
     open override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
-        let insetRect = UIEdgeInsetsInsetRect(bounds, textInsets)
+        let insetRect = bounds.inset(by: textInsets)
         var textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
         // Do the opposite of UIEdgeInsetsInsetRect(textRect, textInsets)
         textRect.origin.x -= textInsets.left
@@ -16,7 +16,7 @@ open class InsetLabel: UILabel {
 
     open override func drawText(in rect: CGRect) {
         let fullRect = textRect(forBounds: rect, limitedToNumberOfLines: numberOfLines)
-        let insetRect = UIEdgeInsetsInsetRect(fullRect, textInsets)
+        let insetRect = fullRect.inset(by: textInsets)
         super.drawText(in: insetRect)
     }
 }

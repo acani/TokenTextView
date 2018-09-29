@@ -303,7 +303,7 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
 
     // MARK: - Styling
 
-    private var fontAttributes: [NSAttributedStringKey: Any] {
+    private var fontAttributes: [NSAttributedString.Key: Any] {
         return [.font: UIFont.preferredFont(forTextStyle: .body)]
     }
 

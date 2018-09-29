@@ -1,10 +1,10 @@
 import UIKit
 
 open class TokenTextViewTableViewCell: UITableViewCell {
-    open let titleLabel = UILabel(frame: .zero)
-    open let subtitleLabel = UILabel(frame: .zero)
+    public let titleLabel = UILabel(frame: .zero)
+    public let subtitleLabel = UILabel(frame: .zero)
 
-    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         titleLabel.adjustsFontForContentSizeCategory = true

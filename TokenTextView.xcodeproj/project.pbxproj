@@ -119,6 +119,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = EDF91DC120BFB1BE00A79838;
 			productRefGroup = EDF91DCB20BFB1BE00A79838 /* Products */;

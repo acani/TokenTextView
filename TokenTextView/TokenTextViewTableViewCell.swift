@@ -4,6 +4,8 @@ open class TokenTextViewTableViewCell: UITableViewCell {
   public let titleLabel = UILabel(frame: .zero)
   public let subtitleLabel = UILabel(frame: .zero)
 
+  // MARK: - UITableViewCell
+
   override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -31,7 +33,9 @@ open class TokenTextViewTableViewCell: UITableViewCell {
     ])
   }
 
-  required public init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  // MARK: - NSCoding
+
+  required public init?(coder: NSCoder) {
+    fatalError("init(coder:) hasn't been implemented")
   }
 }

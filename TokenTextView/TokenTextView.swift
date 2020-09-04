@@ -239,13 +239,7 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
 
   private func tokenizeInputText() {
     let title = tokenDelegate?.sanitizedInputText?(for: self) ?? inputText
-    var tokenAlreadyExists: Bool {
-      values.contains() { value -> Bool in
-        guard let value = (value as? String) else { return false }
-        return value.caseInsensitiveCompare(title) == .orderedSame
-      }
-    }
-    if title.isEmpty || tokenAlreadyExists {
+    if title.isEmpty {
       clearInputText()
     } else {
       values.append(title)

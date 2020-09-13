@@ -2,19 +2,26 @@ import UIKit
 
 @objc public protocol TokenTextViewDelegate: NSObjectProtocol {
   func updateMatches(for tokenTextView: TokenTextView)
-  func tokenTextView(_ tokenTextView: TokenTextView, tableViewCellForRowAt indexPath: IndexPath) -> UITableViewCell
+  func tokenTextView(
+    _ tokenTextView: TokenTextView,
+    tableViewCellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell
   @objc optional func tokenTextViewDidChange(_ tokenTextView: TokenTextView)
   @objc optional func tokenTextViewDidShowTableView(_ tokenTextView: TokenTextView)
   @objc optional func tokenTextViewDidHideTableView(_ tokenTextView: TokenTextView)
   @objc optional func sanitizedInputText(for tokenTextView: TokenTextView) -> String
-  @objc optional func tokenTextView(_ tokenTextView: TokenTextView, titleForValue value: Any) -> String
+  @objc optional func tokenTextView(
+    _ tokenTextView: TokenTextView,
+    titleForValue value: Any
+  ) -> String
   @objc optional func tokenTextViewDidTokenizeInputText(_ tokenTextView: TokenTextView)
   @objc optional func tokenTextViewDidTokenizeMatch(_ tokenTextView: TokenTextView)
   @objc optional func tokenTextView(_ tokenTextView: TokenTextView, didRemoveTokenAt index: Int)
   @objc optional func tokenTextViewDidReturn(_ tokenTextView: TokenTextView)
 }
 
-open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate {
+open class TokenTextView: UITextView,
+UITextViewDelegate, UITableViewDataSource, UITableViewDelegate {
   weak open var tokenDelegate: TokenTextViewDelegate?
   open var inputText: String { String(text![inputTextRange]) }
   open var matches: [Any]?
@@ -45,9 +52,7 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
 
   // MARK: - NSCoding
 
-  required public init?(coder: NSCoder) {
-    fatalError("init(coder:) hasn't been implemented")
-  }
+  required public init?(coder: NSCoder) { fatalError("init(coder:) hasn't been implemented") }
 
   open func initMatchesAndTableView() -> UITableView {
     matches = []
@@ -99,7 +104,11 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
 
   // MARK: - UITextViewDelegate
 
-  open func textView(_ textView: UITextView, shouldChangeTextIn nsrange: NSRange, replacementText: String) -> Bool {
+  open func textView(
+    _ textView: UITextView,
+    shouldChangeTextIn nsrange: NSRange,
+    replacementText: String
+  ) -> Bool {
     if replacementText == "\n" {
       if inputTextRange.isEmpty {
         tokenDelegate?.tokenTextViewDidReturn?(self)
@@ -174,7 +183,10 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
     matches!.count
   }
 
-  open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  open func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
     tokenDelegate!.tokenTextView(self, tableViewCellForRowAt: indexPath)
   }
 
@@ -353,7 +365,10 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
     addUnhighlightedTokenAttributes(to: textStorage, in: nsrange)
   }
 
-  private func addUnhighlightedTokenAttributes(to attributedString: NSMutableAttributedString, in nsrange: NSRange) {
+  private func addUnhighlightedTokenAttributes(
+    to attributedString: NSMutableAttributedString,
+    in nsrange: NSRange
+  ) {
     var attributes = fontAttributes
     let nsranges = tokenNSRanges(from: nsrange)
     attributedString.beginEditing()
@@ -366,7 +381,9 @@ open class TokenTextView: UITextView, UITextViewDelegate, UITableViewDataSource,
     attributedString.endEditing()
   }
 
-  private func tokenNSRanges(from nsrange: NSRange) -> (space: NSRange, title: NSRange, comma: NSRange) {
+  private func tokenNSRanges(
+    from nsrange: NSRange
+  ) -> (space: NSRange, title: NSRange, comma: NSRange) {
     let location = nsrange.location
     let spaceNSRange = NSRange(location: location, length: 1)
     let titleNSRange = NSRange(location: location+1, length: nsrange.length-2)

@@ -3,7 +3,12 @@ import UIKit
 open class InsetLabel: UILabel {
   open var textInsets = UIEdgeInsets.zero
 
-  open override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+  // MARK: - UILabel
+
+  open override func textRect(
+    forBounds bounds: CGRect,
+    limitedToNumberOfLines numberOfLines: Int
+  ) -> CGRect {
     let insetRect = bounds.inset(by: textInsets)
     var textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
     // Do the opposite of UIEdgeInsetsInsetRect(textRect, textInsets)

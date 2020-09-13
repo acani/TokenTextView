@@ -35,7 +35,5 @@ open class TokenTextViewTableViewCell: UITableViewCell {
 
   // MARK: - NSCoding
 
-  required public init?(coder: NSCoder) {
-    fatalError("init(coder:) hasn't been implemented")
-  }
+  required public init?(coder: NSCoder) { fatalError("init(coder:) hasn't been implemented") }
 }
